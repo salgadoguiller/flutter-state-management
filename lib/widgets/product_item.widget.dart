@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../screens/product_detail_screen.dart';
+import '../providers/products.provider.dart';
 import '../providers/product.provider.dart';
 
 class ProductItem extends StatelessWidget {
@@ -9,6 +10,7 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Products productList = Provider.of<Products>(context);
     final product = Provider.of<Product>(context, listen: false);
 
     return ClipRRect(
@@ -24,6 +26,7 @@ class ProductItem extends StatelessWidget {
               color: Theme.of(context).colorScheme.secondary,
               onPressed: () {
                 productListen.toggleFavoriteStatus();
+                productList.notify();
               },
             ),
           ),

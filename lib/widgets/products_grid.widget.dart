@@ -17,9 +17,15 @@ class ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Products productsData = Provider.of<Products>(context);
+    final Products productList = Provider.of<Products>(context);
     final List<Product> products =
-        showOnlyFavorites ? productsData.favoriteItems : productsData.items;
+        showOnlyFavorites ? productList.favoriteItems : productList.items;
+
+    if (products.isEmpty) {
+      return const Center(
+        child: Text('No products found'),
+      );
+    }
 
     return GridView.builder(
       padding: const EdgeInsets.all(10),
