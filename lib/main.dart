@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import './providers/products.provider.dart';
+import './screens/home_screen.dart';
 import './screens/products_overview_screen.dart';
+import './screens/favorite_products_screen.dart';
 import './screens/product_detail_screen.dart';
-import 'providers/products.provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,12 +24,16 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: theme.copyWith(
           colorScheme: theme.colorScheme.copyWith(
-            primary: Colors.purple,
+            primary: Colors.green,
             secondary: Colors.deepOrange,
           ),
         ),
-        home: const ProductsOverviewScreen(),
         routes: {
+          HomeScreen.routeName: (ctx) => const HomeScreen(),
+          ProductsOverviewScreen.routeName: (ctx) =>
+              const ProductsOverviewScreen(),
+          FavoriteProductsScreen.routeName: (ctx) =>
+              const FavoriteProductsScreen(),
           ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
         },
       ),

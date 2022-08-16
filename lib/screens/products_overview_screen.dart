@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/products_grid.widget.dart';
+import '../widgets/app_drawer.dart';
 
 enum FilterOptions {
   favorites,
@@ -7,6 +8,8 @@ enum FilterOptions {
 }
 
 class ProductsOverviewScreen extends StatefulWidget {
+  static const routeName = '/products-overview';
+
   const ProductsOverviewScreen({Key? key}) : super(key: key);
 
   @override
@@ -48,6 +51,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
+      drawer: const AppDrawer(),
       body: ProductGrid(showOnlyFavorites: _showOnlyFavorites),
     );
   }
