@@ -6,6 +6,7 @@ import './screens/home_screen.dart';
 import './screens/products_overview_screen.dart';
 import './screens/favorite_products_screen.dart';
 import './screens/product_detail_screen.dart';
+import './screens/not_found_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
             secondary: Colors.deepOrange,
           ),
         ),
+        initialRoute: '/', // default is '/',
         routes: {
           HomeScreen.routeName: (ctx) => const HomeScreen(),
           ProductsOverviewScreen.routeName: (ctx) =>
@@ -36,6 +38,9 @@ class MyApp extends StatelessWidget {
               const FavoriteProductsScreen(),
           ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
         },
+        onUnknownRoute: (settings) => MaterialPageRoute(
+          builder: (ctx) => const NotFoundScreen(),
+        ),
       ),
     );
   }

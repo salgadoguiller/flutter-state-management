@@ -16,20 +16,20 @@ class AppDrawer extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text('Favorite products'),
-            onTap: () {
-              Navigator.of(context)
-                  .pushReplacementNamed(FavoriteProductsScreen.routeName);
-            },
-          ),
-          const Divider(),
-          ListTile(
             leading: const Icon(Icons.circle),
             title: const Text('All products'),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(ProductsOverviewScreen.routeName);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.favorite),
+            title: const Text('Favorite products'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(FavoriteProductsScreen.routeName);
             },
           ),
         ],
